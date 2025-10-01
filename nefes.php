@@ -101,30 +101,32 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     object-fit: contain; /* cover yerine CONTAIN yaptık */
 }
 
-        .card-back {
-            background: no-repeat center center/contain;
-            transform: rotateY(180deg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+.card-back {
+    /* ... diğer stiller ... */
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* justify-content: center yerine space-between yapın */
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Gerekirse background/border vb. tekrar kontrol edin */
+}
 
-        .card-back p {
-            font-weight: bold;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            flex: 1;
-        }
+.card-back p {
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    flex: 1; /* Mesajın tüm dikey alanı kaplamasını sağlar */
+}
 
-        .comment-btn {
+.comment-btn {
     padding: 8px 14px;
-    margin-top: -10px;
+    margin-top: 10px; /* Negatif değeri kaldırıp pozitif yapın */
+    margin-bottom: 10px; /* Butonun alttan da boşluk bırakmasını sağlar */
     border: none;
     border-radius: 10px;
     background-color: <?php echo $buttonColor; ?>;
@@ -267,15 +269,16 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     });
 }
 
-        function moveToCenter(selectedCard) {
-            const centerIndex = cards.indexOf(selectedCard);
-            cards.forEach((card, i) => {
-                const offset = i - centerIndex;
-                if (card === selectedCard) {
-                    card.style.transform = `translateX(0px) translateZ(180px) rotateY(0deg) scale(1.25)`;
-                    card.style.opacity = 1;
-                    card.style.zIndex = 200;
-                } else if (offset < 0) {
+function moveToCenter(selectedCard) {
+    const centerIndex = cards.indexOf(selectedCard);
+    cards.forEach((card, i) => {
+        const offset = i - centerIndex;
+        if (card === selectedCard) {
+            // scale(1.25) yerine scale(1.15) veya 1.1'i kullanın
+            card.style.transform = `translateX(0px) translateZ(120px) rotateY(0deg) scale(1.15)`; 
+            card.style.opacity = 1;
+            card.style.zIndex = 200;
+        }  else if (offset < 0) {
                     card.style.transform = `translateX(${offset * -10}px) translateZ(${Math.abs(offset) * -20}px) rotateY(50deg) scale(1)`;
                     card.style.opacity = 0.7;
                     card.style.zIndex = i;
@@ -315,6 +318,7 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
+
 
 
 
