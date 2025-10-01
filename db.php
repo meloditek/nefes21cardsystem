@@ -4,8 +4,8 @@ session_start(); // Oturumu başlat
 // db.php
 $host = 'localhost';
 $db = 'kartdb';
-$user = 'root';
-$pass = '';
+$user = 'cd7ec36a7508800059ff9afe3e10';
+$pass = '068dcd7e-c36a-7668-8000-f7aa47937809';
 $charset = 'utf8';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -21,3 +21,4 @@ try {
     throw new \PDOException($e->getMessage(), (int) $e->getCode());
 }
 ?>
+
