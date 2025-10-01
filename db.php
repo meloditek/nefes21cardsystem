@@ -2,7 +2,7 @@
 session_start(); // Oturumu başlat
 
 // db.php
-$host = 'localhost';
+$host = 'db.fr-pari1.bengt.wasmernet.com';
 $db = 'kartdb';
 $user = 'cd7ec36a7508800059ff9afe3e10';
 $pass = '068dcd7e-c36a-7668-8000-f7aa47937809';
@@ -21,4 +21,5 @@ try {
     throw new \PDOException($e->getMessage(), (int) $e->getCode());
 }
 ?>
+
 
