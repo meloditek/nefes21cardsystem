@@ -53,24 +53,25 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         .card-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 2000px;
-            position: relative;
-            width: 100%;
-            height: 500px;
-        }
-
-        .card {
-            width: 220px;
-            height: 352px;
-            transform-style: preserve-3d;
-            transition: transform 0.6s ease, opacity 0.5s ease;
-            cursor: pointer;
-            opacity: 0.7;
-            margin: 0 -5px;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 3500px; /* 2000px'ten 3500px'e yükselttik (Daha geniş görüş alanı) */
+    position: relative;
+    width: 100%;
+    /* Kartların üst üste yığılmasını önlemek için height değerini sabit bırakın */
+    height: 500px; 
+}
+/* ... Satır 93 */
+.card {
+    width: 220px;
+    height: 352px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease, opacity 0.5s ease;
+    cursor: pointer;
+    opacity: 0.9; /* 0.7'den 0.9'a yükseltildi */
+    margin: 0 -2px; /* -5px'ten -2px'e düşürüldü (Kartları biraz ayırdık) */
+}
 
         .card-inner {
             width: 100%;
@@ -314,4 +315,5 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
+
 
