@@ -110,6 +110,7 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             align-items: center;
             padding: 20px;
             box-sizing: border-box;
+            position: relative;
         }
 
         .card-back p {
@@ -122,9 +123,18 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             flex: 1;
         }
 
-        .comment-btn {
+.comment-btn {
     padding: 8px 14px;
-    margin-top: 25px;
+    
+    /* Eski margin-top: -10px; satırını SİLİN veya YORUM SATIRI YAPIN */
+    /* margin-top: -10px; */ 
+    
+    /* Butonu sabitleme ve ortalama */
+    position: absolute; /* <-- EKLENECEK: Mutlak konumlandırma */
+    bottom: 40px;      /* <-- YUKARIDAKİ KONUM: Alt kenardan 40px yukarıda. Deneme yapın. */
+    left: 50%;         /* <-- Ortalamak için */
+    transform: translateX(-50%); /* <-- Ortalamak için */
+    
     border: none;
     border-radius: 10px;
     background-color: <?php echo $buttonColor; ?>;
@@ -315,6 +325,7 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
+
 
 
 
