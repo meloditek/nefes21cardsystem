@@ -96,13 +96,13 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         .card-front img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* cover yerine CONTAIN yaptık */
+}
 
         .card-back {
-            background: no-repeat center center/cover;
+            background: no-repeat center center/contain;
             transform: rotateY(180deg);
             display: flex;
             flex-direction: column;
@@ -315,5 +315,6 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
+
 
 
