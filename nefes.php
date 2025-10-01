@@ -124,7 +124,7 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         .comment-btn {
     padding: 8px 14px;
-    margin-top: -10px;
+    margin-top: -5px;
     border: none;
     border-radius: 10px;
     background-color: <?php echo $buttonColor; ?>;
@@ -315,5 +315,6 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
+
 
 
