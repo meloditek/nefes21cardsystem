@@ -244,24 +244,27 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         function setInitialPositions() {
-            const centerIndex = Math.floor(cards.length / 2);
-            cards.forEach((card, i) => {
-                const offset = i - centerIndex;
-                if (offset < 0) {
-                    card.style.transform = `translateX(${offset * -10}px) translateZ(${Math.abs(offset) * -450}px) rotateY(55deg) scale(1)`;
-                    card.style.opacity = 0.9;
-                    card.style.zIndex = i;
-                } else if (offset === 0) {
-                    card.style.transform = `translateX(0px) translateZ(160px) rotateY(0deg) scale(1.15)`;
-                    card.style.opacity = 1;
-                    card.style.zIndex = 100;
-                } else {
-                    card.style.transform = `translateX(${offset * -10}px) translateZ(${Math.abs(offset) * -450}px) rotateY(-55deg) scale(1)`;
-                    card.style.opacity = 0.9;
-                    card.style.zIndex = cards.length - i;
-                }
-            });
+    const centerIndex = Math.floor(cards.length / 2);
+    cards.forEach((card, i) => {
+        const offset = i - centerIndex;
+        if (offset < 0) {
+            // DEĞİŞTİRİLDİ: -450px -> -250px, 55deg -> 40deg
+            card.style.transform = `translateX(${offset * -10}px) translateZ(${Math.abs(offset) * -250}px) rotateY(40deg) scale(1)`;
+            card.style.opacity = 0.9;
+            card.style.zIndex = i;
+        } else if (offset === 0) {
+            // DEĞİŞTİRİLDİ: 160px -> 100px
+            card.style.transform = `translateX(0px) translateZ(100px) rotateY(0deg) scale(1.15)`;
+            card.style.opacity = 1;
+            card.style.zIndex = 100;
+        } else {
+            // DEĞİŞTİRİLDİ: -450px -> -250px, -55deg -> -40deg
+            card.style.transform = `translateX(${offset * -10}px) translateZ(${Math.abs(offset) * -250}px) rotateY(-40deg) scale(1)`;
+            card.style.opacity = 0.9;
+            card.style.zIndex = cards.length - i;
         }
+    });
+}
 
         function moveToCenter(selectedCard) {
             const centerIndex = cards.indexOf(selectedCard);
@@ -311,3 +314,4 @@ $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
+
